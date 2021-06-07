@@ -1,3 +1,4 @@
+//N bit Ripple Carry Adder - Structural
 module NbitAdder(input [N-1:0] A,
 				 input [N-1:0] B,
 				 input Cin,
