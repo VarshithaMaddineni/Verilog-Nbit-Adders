@@ -1,4 +1,4 @@
-//structural
+//N bit Carry Look Ahead Adder - Verilog Structural Model
 module CLA(input [N-1:0] A,
 		   input [N-1:0] B,
 		   input Cin,
@@ -7,7 +7,7 @@ module CLA(input [N-1:0] A,
 		   
 	parameter N = 32;
 	genvar i;
-	wire [N-1:0] G,P;
+	wire [N-1:0] G,P;  //Carry Generate and Propagate
 	wire [N:0] C;
 	 
 	assign C[0] = Cin;
@@ -15,7 +15,7 @@ module CLA(input [N-1:0] A,
 	generate for(i = 0; i < N; i = i + 1)
 		begin
 		    ha ha0(A[i], B[i], P[i], G[i]);
-		    ha ha1(P[i], C[i], S[i], T);
+		    ha ha1(P[i], C[i], S[i], T);     //T = Temporary 
 		    assign C[i+1] = G[i] | T;
 		end
 	endgenerate
